@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import userProfile
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -30,6 +31,7 @@ def signin(request):
 
 def signup(request):
     if request.method == 'POST':
+        full_name = request.POST.get('full_name', '').strip()
         email = request.POST.get('email', '').strip()
         phone = request.POST.get('phone', '').strip()
         password = request.POST.get('password', '').strip()
@@ -55,6 +57,8 @@ def signup(request):
         user.set_password(password)
         user.save()
         messages.success(request, "Registration successful! Please log in.")
+        userpro = userProfile.objects.create(user=user, full_name=full_name, phone=phone)
+        userpro.save()
         return redirect('signin')
 
     return render(request, 'signup.html')
