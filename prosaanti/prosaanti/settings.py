@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'accounts',
     'home',
+    'dashboard',
 ]
 
 MIDDLEWARE = [

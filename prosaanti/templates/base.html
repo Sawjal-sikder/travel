@@ -4,16 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'icon/img.png' %}" >
+    <link rel="icon" href="{% static 'icon/img.png' %}">
     <title>{% block title %}Prosaanti{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMq0xwBQghDF2m4m0gH2wXGQn0kt15B5x2z9rR" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMq0xwBQghDF2m4m0gH2wXGQn0kt15B5x2z9rR" crossorigin="anonymous">
 
 </head>
 <body>
+{% block nav %}
 {% include 'navbar.html' %}
-{% block content %}{% endblock %}
+{% endblock  %}
+<div class="pt-20">
+        {% block content %}{% endblock %}
+</div>
+{% include 'footer_sm.html' %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>
