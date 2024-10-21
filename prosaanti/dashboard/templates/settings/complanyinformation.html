@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}ProSaanti{% endblock %}
+{% block content %}
+{% block nav %}
+{% endblock %}
+{% include 'sidebar.html' %}
+
+<div class="p-4 sm:ml-64">
+    <p class="text-2xl mb-8 pb-2 ps-5 border-b-2 font-bold">Company Information</p>
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 ">
+        <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
+
+            <form method="POST" action="{% url 'comInfo' %}" enctype="multipart/form-data" class="w-full p-8">
+                {% csrf_token %}
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="com_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company
+                            name</label>
+                        <input type="text" id="com_name"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               autocomplete="company" value="{% if info.name %}{{info.name}} {% else %}-{% endif %}"
+                               name="name"/>
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                            number</label>
+                        <input type="tel" id="phone"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               autocomplete="phone"
+                               value="{% if info.phone_number %}{{info.phone_number}} {% else %}-{% endif %}"
+                               name="phone_number"/>
+                    </div>
+                    <div>
+                        <label for="tax_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tax id
+                            no
+                        </label>
+                        <input type="text" id="tax_id"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               value="{% if info.tax_id %}{{info.tax_id}} {% else %}-{% endif %}" name="tax_id"/>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                            address</label>
+                        <input type="email" id="email"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               value="{% if info.email %}{{info.email}} {% else %}-{% endif %}" name="email"/>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Address
+                    </label>
+                    <textarea id="address" rows="4"
+                              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              name="address">{% if info.address %}{{ info.address }}{% else %}-{% endif %}</textarea>
+                </div>
+                <div class="flex items-center justify-center gap-10 w-full text-center">
+                    <label for="dropzone-file"
+                           class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span>
+                                or drag and drop Your Logo</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
+                                800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" name="logo"/>
+                    </label>
+                    <label for="dropzone-file-icon"
+                           class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span>
+                                or drag and drop Your Icon</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
+                                800x400px)</p>
+                        </div>
+                        <input id="dropzone-file-icon" type="file" class="hidden" name="icon"/>
+                    </label>
+                </div>
+
+                <div class="mt-5 flex justify-between ">
+                    <a href="{% url 'admin' %}"
+                       class="text-indigo-950 bg-white border-2 border-indigo-950 hover:border-2 border-indigo-950 focus:ring-4 focus:outline-none focus:ring-indigo-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Submit
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
