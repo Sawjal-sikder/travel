@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import CompanyInformation
+from accounts.models import userProfile
 
 
 # Create your views here.
@@ -19,7 +20,6 @@ def comInfo(request):
         address = request.POST.get('address')
         logo = request.FILES.get('logo')
         icon = request.FILES.get('icon')
-        print(icon)
         # Update fields
         info.name = name
         info.phone_number = phone_number
@@ -37,3 +37,11 @@ def comInfo(request):
     }
 
     return render(request, 'settings/complanyinformation.html', context)
+
+
+def clintList(request):
+    clints = userProfile.objects.filter(is_new=False)
+    context = {
+        'clints': clints
+    }
+    return render(request, 'user/user.html', context)
