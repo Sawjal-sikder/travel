@@ -40,7 +40,7 @@ def comInfo(request):
 
 
 def clintList(request):
-    clints = userProfile.objects.filter(is_new=False)
+    clints = userProfile.objects.all()
     context = {
         'clints': clints
     }

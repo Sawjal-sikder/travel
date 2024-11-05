@@ -29,21 +29,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <a href="#" >
                     {% for clint in clints %}
-                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{clint.full_name}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{clint.phone}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{clint.user}}
-                    </td>
-
-                </tr>
-                {% endfor %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td scope="row "
+                            class="{% if clint.is_new == True %}font-bold text-md text-black px-6 py-4 {% else %}px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white{% endif %}">
+                            <a href="#">Your clint is {{ clint.full_name }} and email is {{ clint.user }}</a>
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ clint.phone }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ clint.user }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </a>
                 </tbody>
+
             </table>
         </div>
 
@@ -56,7 +59,8 @@
     <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 ">
         <div class="w-full text-center">
             <p class="mb-2 text-4xl font-bold tracking-tight text-gray-900">No Clints</p>
-            <a href="{% url 'admin' %}" class="hover:underline hover:underline-offset-8 text-indigo-500 hover:text-indigo-800">Go to
+            <a href="{% url 'admin' %}"
+               class="hover:underline hover:underline-offset-8 text-indigo-500 hover:text-indigo-800">Go to
                 Dashboard</a>
         </div>
     </div>
