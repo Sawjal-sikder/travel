@@ -1,69 +1,80 @@
 {% extends 'base.html' %}
 {% block title %}ProSaanti{% endblock %}
 {% block content %}
+
+<!-- Spinner -->
+<div id="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-75 hidden">
+    <div class="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
+</div>
+
 {% block nav %}
 {% endblock %}
 {% include 'sidebar.html' %}
-{% if clints %}
 
+{% if clints %}
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 ">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <caption
-                        class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                    Clint List
+                <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                    Client List
                 </caption>
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        Full Name
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Phone Number
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        E-mail
-                    </th>
-
-                </tr>
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Full Name</th>
+                        <th scope="col" class="px-6 py-3">Phone Number</th>
+                        <th scope="col" class="px-6 py-3">E-mail</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <a href="#" >
                     {% for clint in clints %}
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td scope="row "
-                            class="{% if clint.is_new == True %}font-bold text-md text-black px-6 py-4 {% else %}px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white{% endif %}">
-                            <a href="#">Your clint is {{ clint.full_name }} and email is {{ clint.user }}</a>
+                        <td class="{% if clint.is_new %}font-bold text-md text-black px-6 py-4{% else %}px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white{% endif %}">
+                            {% if clint.is_new %}
+                            <a href="{% url 'read' clint.id %}">{{ clint.full_name }}</a>
+                            {% else %}
+                            {{ clint.full_name }}
+                            {% endif %}
                         </td>
-                        <td class="px-6 py-4">
-                            {{ clint.phone }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ clint.user }}
-                        </td>
+                        <td class="{% if clint.is_new %}font-bold text-md text-black px-6 py-4{% else %}px-6 py-4{% endif %}">{{ clint.phone }}</td>
+                        <td class="{% if clint.is_new %}font-bold text-md text-black px-6 py-4{% else %}px-6 py-4{% endif %}">{{ clint.user }}</td>
                     </tr>
                     {% endfor %}
-                </a>
                 </tbody>
-
             </table>
         </div>
-
     </div>
 </div>
-
-
 {% else %}
 <div class="p-4 sm:ml-64">
-    <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 ">
+    <div class="p-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <div class="w-full text-center">
-            <p class="mb-2 text-4xl font-bold tracking-tight text-gray-900">No Clints</p>
-            <a href="{% url 'admin' %}"
-               class="hover:underline hover:underline-offset-8 text-indigo-500 hover:text-indigo-800">Go to
-                Dashboard</a>
+            <p class="mb-2 text-4xl font-bold tracking-tight text-gray-900">No Clients</p>
+            <a href="{% url 'admin' %}" class="hover:underline hover:underline-offset-8 text-indigo-500 hover:text-indigo-800">Go to Dashboard</a>
         </div>
     </div>
 </div>
 {% endif %}
+
+<!-- Inline JavaScript -->
+<script>
+    // Show spinner on page load
+    window.addEventListener("load", function() {
+        const spinner = document.getElementById("spinner");
+        spinner.classList.remove("hidden");
+
+        // Hide the spinner after a short delay (e.g., 1 second)
+        setTimeout(() => {
+            spinner.classList.add("hidden");
+        }, 000); // Adjust delay as needed
+    });
+
+    // Show spinner on link clicks
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            document.getElementById("spinner").classList.remove("hidden");
+        });
+    });
+</script>
+
 {% endblock %}

@@ -10,7 +10,7 @@ def userprofile(request):
         try:
             clint_count = userProfile.objects.filter(is_new=True).count()
         except userProfile.DoesNotExist:
-            clint_count = 22
+            clint_count = 0
     else:
         profile = None
         clint_count = 0

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import CompanyInformation
 from accounts.models import userProfile
 
@@ -45,3 +45,10 @@ def clintList(request):
         'clints': clints
     }
     return render(request, 'user/user.html', context)
+
+
+def read(request, id):
+    redUser = get_object_or_404(userProfile ,id=id)
+    redUser.is_new = False
+    redUser.save()
+    return redirect('clintList')

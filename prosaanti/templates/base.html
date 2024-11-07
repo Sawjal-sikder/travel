@@ -10,16 +10,35 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMq0xwBQghDF2m4m0gH2wXGQn0kt15B5x2z9rR" crossorigin="anonymous">
-
 </head>
 <body>
-{% block nav %}
-{% include 'navbar.html' %}
-{% endblock  %}
+
+
+<!-- Navbar -->
+{% block nav %}{% include 'navbar.html' %}{% endblock %}
+
+<!-- Spinner -->
+{% include 'spinner.html' %}
 <div class="pt-20">
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </div>
+
 {% include 'footer_sm.html' %}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const spinner = document.getElementById('spinner');
+        // Show the spinner when the page starts loading
+        spinner.classList.remove('hidden');
+
+        // Hide the spinner when the content has loaded
+        window.onload = function () {
+            spinner.classList.add('hidden');
+        };
+    });
+</script>
+
 </body>
 </html>
