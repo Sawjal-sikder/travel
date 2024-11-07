@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}ProSaanti{% endblock %}
 {% block content %}
-
-<!-- Spinner -->
-<div id="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-75 hidden">
-    <div class="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
-</div>
-
 {% block nav %}
 {% endblock %}
 {% include 'sidebar.html' %}
@@ -56,25 +50,5 @@
 </div>
 {% endif %}
 
-<!-- Inline JavaScript -->
-<script>
-    // Show spinner on page load
-    window.addEventListener("load", function() {
-        const spinner = document.getElementById("spinner");
-        spinner.classList.remove("hidden");
-
-        // Hide the spinner after a short delay (e.g., 1 second)
-        setTimeout(() => {
-            spinner.classList.add("hidden");
-        }, 000); // Adjust delay as needed
-    });
-
-    // Show spinner on link clicks
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            document.getElementById("spinner").classList.remove("hidden");
-        });
-    });
-</script>
 
 {% endblock %}

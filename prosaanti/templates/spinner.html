@@ -4,23 +4,3 @@
 </div>
 
 
-<!-- Inline JavaScript -->
-<script>
-    // Show spinner on page load
-    window.addEventListener("load", function() {
-        const spinner = document.getElementById("spinner");
-        spinner.classList.remove("hidden");
-
-        // Hide the spinner after a short delay (e.g., 1 second)
-        setTimeout(() => {
-            spinner.classList.add("hidden");
-        }, 000); // Adjust delay as needed
-    });
-
-    // Show spinner on link clicks
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            document.getElementById("spinner").classList.remove("hidden");
-        });
-    });
-</script>

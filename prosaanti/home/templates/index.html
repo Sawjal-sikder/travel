@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}Prosaanti{% endblock %}
 {% block content %}
-<h1>Hello</h1>
+<div class="relative h-64 sm:h-80 w-full overflow-hidden">
+    <img src="static/img/Screenshot 2024-11-07 131725.png" alt="Banner" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-blue-500 opacity-50"></div>
+    <div id="water-effect" class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-600 opacity-30"></div>
+</div>
+<script>
+    const waterEffect = document.getElementById("water-effect");
+
+  let offset = 0;
+  function animateWater() {
+    offset += 0.5; // Control the speed of the wave
+    waterEffect.style.backgroundPositionY = `${offset}px`; // Moves the gradient to create the effect
+    requestAnimationFrame(animateWater); // Continuously animate the wave effect
+  }
+
+  animateWater();
+
+</script>
 {% endblock %}
