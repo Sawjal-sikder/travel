@@ -4,47 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{info.logo.url}}">
+    <!-- Favicon with default fallback -->
+    <link rel="icon" href="{{ info.logo.url|default:'path/to/default-favicon.ico' }}">
     <title>{% block title %}Prosaanti{% endblock %}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-          integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMq0xwBQghDF2m4m0gH2wXGQn0kt15B5x2z9rR" crossorigin="anonymous">
+
+    <!-- Stylesheets -->
+    <link href="{% static 'tailwindcss/flowbite.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tailwindcss/font-awesome.css' %}">
+    <script defer src="{% static 'tailwindcss/design.js' %}"></script>
 </head>
 <body>
-
 
 <!-- Navbar -->
 {% block nav %}{% include 'navbar.html' %}{% endblock %}
 
 <!-- Spinner -->
 {% include 'spinner.html' %}
-<div class="pt-20">
-    {% block content %}{% endblock %}
-</div>
 
+<!-- Main Content -->
+{% block content %}{% endblock %}
+
+<!-- Footer -->
 {% include 'footer_sm.html' %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+<!-- Scripts -->
+<script defer src="{% static 'tailwindcss/flowbitejs.js' %}"></script>
 
-<!-- Inline JavaScript -->
 <script>
-    // Show spinner on page load
-    window.addEventListener("load", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         const spinner = document.getElementById("spinner");
-        spinner.classList.remove("hidden");
 
-        // Hide the spinner after a short delay (e.g., 1 second)
-        setTimeout(() => {
-            spinner.classList.add("hidden");
-        }, 0); // Adjust delay as needed
-    });
+        if (spinner) {
+            // Hide spinner on page load after a short delay
+            setTimeout(() => spinner.classList.add("hidden"), 1000);
 
-    // Show spinner on link clicks
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            document.getElementById("spinner").classList.remove("hidden");
-        });
+            // Show spinner on link clicks
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", (event) => {
+                    // Prevent showing spinner on external links
+                    if (!link.href.startsWith(window.location.origin)) return;
+                    spinner.classList.remove("hidden");
+                });
+            });
+        }
     });
 </script>
 
