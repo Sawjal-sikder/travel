@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon with default fallback -->
     <link rel="icon" href="{{ info.logo.url|default:'path/to/default-favicon.ico' }}">
-    <title>{% block title %}Prosaanti{% endblock %}</title>
+    <title>{% block title %}{{info.name}}{% endblock %}</title>
 
     <!-- Stylesheets -->
     <link href="{% static 'tailwindcss/flowbite.css' %}" rel="stylesheet">
@@ -18,40 +18,14 @@
 <!-- Navbar -->
 {% block nav %}{% include 'navbar.html' %}{% endblock %}
 
-<!-- Spinner -->
-<!-- Spinner -->
-<div id="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-75 hidden">
-    <div class="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
-</div>
-
 <!-- Main Content -->
 {% block content %}{% endblock %}
 
 <!-- Footer -->
 {% include 'footer_sm.html' %}
 
+
 <!-- Scripts -->
 <script defer src="{% static 'tailwindcss/flowbitejs.js' %}"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const spinner = document.getElementById("spinner");
-
-        if (spinner) {
-            // Hide spinner on page load after a short delay
-            setTimeout(() => spinner.classList.add("hidden"), 1000);
-
-            // Show spinner on link clicks
-            document.querySelectorAll("a").forEach(link => {
-                link.addEventListener("click", (event) => {
-                    // Prevent showing spinner on external links
-                    if (!link.href.startsWith(window.location.origin)) return;
-                    spinner.classList.remove("hidden");
-                });
-            });
-        }
-    });
-</script>
-
 </body>
 </html>
