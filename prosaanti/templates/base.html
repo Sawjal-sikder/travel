@@ -19,7 +19,10 @@
 {% block nav %}{% include 'navbar.html' %}{% endblock %}
 
 <!-- Spinner -->
-{% include 'spinner.html' %}
+<!-- Spinner -->
+<div id="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-75 hidden">
+    <div class="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
+</div>
 
 <!-- Main Content -->
 {% block content %}{% endblock %}
