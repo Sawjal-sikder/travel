@@ -1,0 +1,150 @@
+[33mcommit 5b2aec83999b55dd8b6a16a2eec49c3ce3f7e8a3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Tue Nov 19 01:54:20 2024 +0600
+
+    vvvv
+
+[33mcommit 70bff0319e744cc6ab3c5d0f5a60b428a4627a99[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Mon Nov 18 22:10:48 2024 +0600
+
+    like init
+
+[33mcommit 3290fc6bf936fad770fb70584fcf2bb1906313a3[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Mon Nov 18 16:36:32 2024 +0600
+
+    lat
+
+[33mcommit d725c186a6e0000b6ad3043e938257920bd2eee5[m
+Merge: 3361397 8030076
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Mon Nov 18 16:27:08 2024 +0600
+
+    Merge branch 'main' of https://github.com/Sawjal-sikder/travel
+
+[33mcommit 336139702359b36245459be7b8ef7a63ce7755bb[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Mon Nov 18 16:26:40 2024 +0600
+
+    Create 256050365_2977335882521034_5452209293210090903_n.jpg
+
+[33mcommit 803007627ef66ea64e7f40934cd7cc9efd8ec40a[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Sat Nov 16 01:59:26 2024 +0600
+
+    card design
+
+[33mcommit a3d794c623c8c558bbe5a659553413463cce53d8[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Sun Nov 10 11:34:39 2024 +0600
+
+    code in download design
+
+[33mcommit 1408fccffcc151d2ab646c08434477657c9b9c85[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Thu Nov 7 13:29:14 2024 +0600
+
+    not auth
+
+[33mcommit 267b73e722de190cce57dc47471d26b7b0e1962e[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Thu Nov 7 13:25:54 2024 +0600
+
+    added banner
+
+[33mcommit 72a66daf1792544f1a91d005410f7aa8700f5f06[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Thu Nov 7 13:01:16 2024 +0600
+
+    added spinner
+
+[33mcommit 1ed1eae26d0b81f0a3d1f09c9689b2102030cd17[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Tue Nov 5 15:22:03 2024 +0600
+
+    fb
+
+[33mcommit 665f0f7ff0d6271e7eb17413a15ac6ca6bc7d479[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Thu Oct 24 16:22:05 2024 +0600
+
+    clint count display
+
+[33mcommit 6be63dad78a7284af9402cadc48bafc80a8152dc[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Thu Oct 24 16:05:01 2024 +0600
+
+    clint listing in admin panel only display view
+
+[33mcommit f8dbc00dba619faa1ae4b655e250d1e57a01238a[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Mon Oct 21 19:20:34 2024 +0600
+
+    company information complate
+
+[33mcommit e0b76d378004bab2fbc2d351016ba7e808388622[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Sun Oct 20 18:02:26 2024 +0600
+
+    company profile
+
+[33mcommit 912c6c2c0d8d0d17d8f278f589d4ad9ed3ef0e4f[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Sun Oct 20 16:06:18 2024 +0600
+
+    Improve dashboard design with updated icons and layout enhancements
+    
+    - Added new icons for Booking and Signout actions
+    - Refined button styles with hover effects for better UX
+    - Improved overall alignment and spacing for a cleaner look
+    - Applied dark mode support for dashboard elements
+
+[33mcommit 129268a03253ee21a1f7a9d379465dbe62eefeeb[m
+Author: Sawjal_sikder <mdsajalsikder@gmail.com>
+Date:   Sat Oct 19 19:30:22 2024 +0600
+
+    Complete user profile integration
+    
+    - Added context processor to include user profile in all templates
+    - Created user profile model and associated it with User model
+    - Implemented user profile in signup view to store additional user data
+    - Ensured user profile data is available in the template context for authenticated users
+    - Updated templates to display user profile information
+
+[33mcommit b1e320c62450ffa50c709ac92cf716cf145d58bf[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Fri Oct 18 00:59:51 2024 +0600
+
+    Complete user authentication and navigation setup
+    
+    - Implemented login, logout, and user registration functionality
+    - Added and styled navbar for easy navigation
+
+[33mcommit 233fc9c144ec103eeb3b16e1d0ce211217de9a0e[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Thu Oct 17 22:32:55 2024 +0600
+
+    Update signin.html
+
+[33mcommit 7a32da7f27d0907a7f8ad3e569c5fd1a6524da19[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Thu Oct 17 18:32:25 2024 +0600
+
+    Update signin.html
+
+[33mcommit 819fcd9dff13407ea4c18fdd424dd8f6aa9ff168[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Thu Oct 17 00:27:32 2024 +0600
+
+    Initial project setup and add sign-in page design
+    
+    - Set up project structure and configuration files
+    - Implement sign-in page layout with Tailwind CSS
+    - Added Google and Facebook login options, email/password inputs, forgot password link, and sign-up prompt
+
+[33mcommit dc08ae618a07d9177b8422f3dd9f2f89101cfddc[m
+Author: Md Sawjal Sikder <134833280+Sawjal-sikder@users.noreply.github.com>
+Date:   Wed Oct 16 23:14:58 2024 +0600
+
+    Initial commit
